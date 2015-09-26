@@ -1,4 +1,7 @@
 task populate: :environment do
+  %x(bundle exe rake db:drop db:create db:migrate)
+  Shop.clear_index!
+
   data = JSON.parse(File.read("#{Rails.root}/lib/assets/populate.json"))
   data.each do |shop|
     phone_data = shop['phone']
@@ -15,6 +18,24 @@ task populate: :environment do
 
     next if not Shop.where(title: shop['title']).empty?
 
+    address = shop['address'].chomp
+    address.each_char.with_index do |char, i|
+      if (char =~ /[[:digit:]]/) == 0
+        address = address[i..-1]
+        break
+      end
+    end
+    address.gsub!('CEDEX', '')
+    coordinates = Geocoder.coordinates(address)
+
+    if coordinates.nil?
+      puts "sleep 5secondes -- address #{address}"
+      sleep 5
+      coordinates = Geocoder.coordinates(address)
+    end
+
+    next if coordinates.nil?
+
     Shop.create(
                   title: shop['title'].chomp,
                   phone: phone.chomp,
@@ -24,6 +45,8 @@ task populate: :environment do
                   site: 'wild_code_school.com',
                   facebook: 'wild.code.school',
                   twitter: 'wild.code.school',
+                  lat: coordinates.first,
+                  lng: coordinates.last,
                )
   end
 

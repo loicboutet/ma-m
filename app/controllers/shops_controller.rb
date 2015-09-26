@@ -4,7 +4,14 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    shop_ids = Array.new
+    algolia_result = Shop.raw_search(params['query'], aroundLatLng: "#{params['lat']},#{params['lng']}", aroundRadius: 5000)
+    shop_ids += algolia_result['hits'].map { |hit| hit['objectID'] }
+    while algolia_result['page'] + 1 < algolia_result['nbPages']
+      algolia_result = Shop.raw_search(params['query'], page: algolia_result['page'] + 1, aroundLatLng: "#{params['lat']},#{params['lng']}", aroundRadius: 5000)
+      shop_ids += algolia_result['hits'].map { |hit| hit['objectID'] }
+    end
+    @shops = Shop.where(id: shop_ids)
     render json: @shops
   end
 
