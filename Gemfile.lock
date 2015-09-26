@@ -424,9 +424,9 @@ DEPENDENCIES
   faker
   fog
   foreman
-  gmaps4rails
   geocoder
   geokit-rails
+  gmaps4rails
   guard-bundler
   guard-rails
   guard-rspec
