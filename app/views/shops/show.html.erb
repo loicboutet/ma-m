@@ -17,6 +17,17 @@
       <p>Dislike: <%= @shop.dislikes %></p>
       <p>Stars: <%= @shop.average_stars %></p>
     <% end %>
+
+    <% if @shop.comments.empty? %>
+      <p>No Comment Yet !</p>
+    <% else %>
+      <p>Comments: </p>
+      <% @shop.comments.each do |comment| %>
+        <div>
+          <%= comment.comment %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </body>
 </html>

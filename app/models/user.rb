@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   # Associations
 
+  has_many :comments
   has_many :ratings
 
   # -- Associations
