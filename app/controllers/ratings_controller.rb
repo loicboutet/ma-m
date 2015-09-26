@@ -16,6 +16,7 @@ class RatingsController < ApplicationController
   def new
     @rating = Rating.new
     @shop_id = params['shop_id']
+    @like = params['like']
   end
 
   # GET /ratings/1/edit
@@ -37,7 +38,8 @@ class RatingsController < ApplicationController
                               service: params['rating']['service'],
                               price: params['rating']['price'],
                               user: current_user,
-                              shop: Shop.find(params['shop_id']),
+                              shop: Shop.find(params['shop_id'],
+                              like: params['like']),
                             )
   end
 

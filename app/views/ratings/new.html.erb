@@ -4,7 +4,7 @@
   <title></title>
 </head>
 <body>
-  <%= form_tag("/ratings?shop_id=#{@shop_id}", method: "post") do %>
+  <%= form_tag("/ratings?shop_id=#{@shop_id}&like=#{@like}", method: "post") do %>
     <%= label_tag(:comment, "Votre commentaire:") %> <br>
     <%= text_area(:comment, :text, size: "40x3") %> <br>
     Vous êtes :
