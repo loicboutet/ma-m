@@ -8,7 +8,7 @@ class Rating < ActiveRecord::Base
 
   # Validations
 
-  validates :like,  presence: true
+  validates :like, :inclusion => {:in => [true, false]}
   validates :stars, numericality:   {
                                       greater_than_or_equal: 0,
                                       less_than_or_equal_to: 10,
