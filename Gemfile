@@ -56,3 +56,6 @@ end
 
 gem 'carrierwave'
 gem 'fog'
+gem "algoliasearch-rails"
+gem 'geokit-rails'
+gem 'geocoder'

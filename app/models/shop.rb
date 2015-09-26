@@ -1,4 +1,15 @@
 class Shop < ActiveRecord::Base
+  # AlgoliaSearch
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :title, :phone, :address, :job, :email, :site, :facebook, :twitter
+    geoloc :lat, :lng
+  end
+
+  # -- AlgoliaSearch
+
   # Associations
 
   has_many :comments
@@ -6,7 +17,17 @@ class Shop < ActiveRecord::Base
 
   # -- Associations
 
+  # Callbacks
+
+  after_create :algolia_create
+
+  # -- Callbacks
+
   # Methods
+
+  def algolia_create
+    self.index!
+  end
 
   def average_stars
     (self.ratings.pluck(:stars).sum.to_f / self.ratings.count / 2).round(1)
