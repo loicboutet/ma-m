@@ -37,7 +37,6 @@ task populate: :environment do
   rating1 = Rating.create(shop: shop, like: true, stars: 9, user: user1)
   rating2 = Rating.create(shop: shop, like: true, stars: 7, user: user2)
   rating3 = Rating.create(shop: shop, like: false, stars: 3, user: user3)
-  byebug
   comment1 = Comment.create(shop: shop, comment: 'Coucou trop bien', user: user1)
   comment2 = Comment.create(shop: shop, comment: "J'aime les chats", user: user2)
   comment3 = Comment.create(shop: shop, comment: 'Pas assez de chats !', user: user3)
