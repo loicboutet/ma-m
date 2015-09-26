@@ -3,8 +3,7 @@
                     
   <div class="block-header">
   	<h2><%= @shop.title %></h2>
-    <h2><small>Créé le : <%= @shop.created_at %>, Mis à jour le : <%= @shop.updated_at %></small> <%= link_to 'Edit', edit_shop_path(@shop) %> |
-		<%= link_to 'Back', shops_path %></h2>
+    <h2><small><%= @shop.job.capitalize %></small></h2>
 
 	<div class="card" id="profile-main">
 	<div class="pm-overview c-overflow" tabindex="3" style="overflow: hidden; outline: none;">
@@ -26,25 +25,20 @@
         <h2>Contact</h2>
         
         <ul>
-            <li><i class="zmdi zmdi-phone"></i><%= @shop.phone %> </li>
-            <li><i class="zmdi zmdi-email"></i> </li>
-            <li><i class="zmdi zmdi-facebook-box"></i> </li>
-            <li>
-                <i class="zmdi zmdi-pin"></i>
-                <address class="m-b-0"><%= @shop.address %> 
-                </address>
-            </li>
+          <li><i class="zmdi zmdi-phone"></i><%= @shop.phone %> </li>
+          <li><i class="zmdi zmdi-email"></i> </li>
+          <li><i class="zmdi zmdi-facebook-box"></i> </li>
+          <li>
+              <i class="zmdi zmdi-pin"></i>
+              <address class="m-b-0"><%= @shop.address %> 
+              </address>
+          </li>
+          <li><i> horaires</i></li>
         </ul>
     </div>
     </div>
 	</div>	
-  
-  
-      
-      <div class="pm-body clearfix">
-          <ul class="tab-nav tn-justified" tabindex="1" style="overflow: hidden; outline: none;">
-            <li class="active waves-effect"><%= @shop.title %><br></li>
-          </ul>
+  <div class="pm-body clearfix">
       <ul class="tab-nav tn-justified" tabindex="1" style="overflow: hidden; outline: none;">
         <li class="active waves-effect"><a href="profile-about.html">About</a></li>
         <li class="waves-effect"><a href="profile-timeline.html">Timeline</a></li>
@@ -52,75 +46,121 @@
         <li class="waves-effect"><a href="profile-connections.html">Connections</a></li>
       </ul> 
   <div class="pmb-block">
-	    <div class="pmbb-header">
-	        <h2><i class="zmdi zmdi-equalizer m-r-5"></i> Summary</h2>
-	        
-	        <ul class="actions">
-	            <li class="dropdown">
-	                <a href="" data-toggle="dropdown">
-	                    <i class="zmdi zmdi-more-vert"></i>
-	                </a>
-	                
-	                <ul class="dropdown-menu dropdown-menu-right">
-	                    <li>
-	                        <a data-pmb-action="edit" href="">Edit</a>
-	                    </li>
-	                </ul>
-	            </li>
-	        </ul>
-	    </div>
+    <div class="pmbb-header">
+      <h2><i class="zmdi zmdi-equalizer m-r-5"></i> Summary</h2>
+      
+      <ul class="actions">
+        <li class="dropdown">
+          <a href="" data-toggle="dropdown">
+            <i class="zmdi zmdi-more-vert"></i>
+          </a>
+            
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <a data-pmb-action="edit" href="">Edit</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 	    <div class="pmbb-body p-l-30">
-	        <div class="pmbb-view">
-	            Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.
-	        </div>
-	        
-	        <div class="pmbb-edit">
-	            <div class="fg-line">
-	                <textarea class="form-control" rows="5" placeholder="Summary...">Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.</textarea>
-	            </div>
-	            <div class="m-t-10">
-	                <button class="btn btn-primary btn-sm waves-effect">Save</button>
-	                <button data-pmb-action="reset" class="btn btn-link btn-sm waves-effect">Cancel</button>
-	            </div>
-	        </div>
+        <div class="pmbb-view">
+          Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.
+        </div>
 	    </div>
 	</div>      
           
           
           
-          <div class="pmb-block">
-            <div class="pmbb-header">
-              <h2><i class="zmdi zmdi-account m-r-5"></i> Basic Information</h2>
+    <div class="pmb-block">
+      <div class="pmbb-header">
+        <h2><i class="zmdi zmdi-account m-r-5"></i> Basic Information</h2>
+            
+          <ul class="actions">
+            <li class="dropdown">
+              <a href="" data-toggle="dropdown">
+                <i class="zmdi zmdi-more-vert"></i>
+              </a>
                   
-	              <ul class="actions">
-	                <li class="dropdown">
-	                  <a href="" data-toggle="dropdown">
-	                    <i class="zmdi zmdi-more-vert"></i>
-	                  </a>
-	                      
-	                  <ul class="dropdown-menu dropdown-menu-right">
-	                    <li>
-	                      <a data-pmb-action="edit" href="">Edit</a>
-	                    </li>
-	                  </ul>
-	                </li>
-	              </ul>
-              </div>
-              <div class="pmbb-body p-l-30">
-                  <div class="pmbb-view">
-                      <dl class="dl-horizontal">
-                          <dt>Adressed</dt>
-                          <dd></dd>
-                      </dl>
-                      <dl class="dl-horizontal">
-                          <dt>Téléphone</dt>
-                          <dd><%= @shop.phone %> </dd>
-                      </dl>
-                  </div>
-              </div>
-          </div>   
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                  <a data-pmb-action="edit" href="">Edit</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      <div class="row">  
+        <div class="pmbb-body p-l-30 col-md-6">
+            <div class="pmbb-view ">
+                <dl class="dl-horizontal">
+                    <dt>Adressed</dt>
+                    <dd></dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Téléphone</dt>
+                    <dd><%= @shop.phone %> </dd>
+                </dl>
+            </div>
+        </div>
+        
+        <div class="pmbb-body p-l-30 col-md-6">
+        	<div class="row">
+            <div class="pmbb-view">
+              <dl class="dl-horizontal col-md-6">
+                <dt>DONNEZ votre avis</dt>
+              </dl>
+              <dl class="dl-horizontal col-md-6">
+                <dt>J'aime</dt>
+                <dt>J'aime pas</dt>
+              </dl>
+            </div>
+       		</div>
+        </div>
       </div>
-  </div>
+    </div> 
+    <div class="listview lv-message">
+      <div class="lv-body">                                    
+          <div class="lv-item media">
+              <div class="lv-avatar pull-left">
+                  <img src="/assets/profile-pics/1.jpg" alt="">
+              </div>
+              <div class="media-body">
+                  <div class="ms-item">
+                      Quisque consequat arcu eget odio cursus, ut tempor arcu vestibulum. Etiam ex arcu, porta a urna non, lacinia pellentesque orci. Proin semper sagittis erat, eget condimentum sapien viverra et. Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
+                  </div>
+                  <small class="ms-date"><i class="zmdi zmdi-access-time"></i> 20/02/2015 at 09:00</small>
+              </div>
+          </div>
+          <div class="lv-item media">
+              <div class="lv-avatar pull-left">
+                  <img src="/assets/profile-pics/1.jpg" alt="">
+              </div>
+              <div class="media-body">
+                  <div class="ms-item">
+                      Etiam ex arcumentum
+                  </div>
+                  <small class="ms-date"><i class="zmdi zmdi-access-time"></i> 20/02/2015 at 09:33</small>
+              </div>
+          </div>
+          <div>
+          	<i class="fa fa-chevron-down collapse"></i>	
+         	</div> 	
+          <div class="lv-item media">
+              <div class="lv-avatar pull-left">
+                  <img src="/assets/profile-pics/1.jpg" alt="">
+              </div>
+              <div class="media-body">
+                  <div class="ms-item">
+                      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ac tortor ut elit sodales varius. Mauris id ipsum id mauris malesuada tincidunt. Vestibulum elit massa, pulvinar at sapien sed, luctus vestibulum eros. Etiam finibus tristique ante, vitae rhoncus sapien volutpat eget
+                  </div>
+                  <small class="ms-date"><i class="zmdi zmdi-access-time"></i> 20/02/2015 at 10:24</small>
+              </div>
+          </div>
+      </div>
+  	</div>  
+	</div>
+</div>
 </div>
 </body>
 </html>
