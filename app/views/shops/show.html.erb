@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div>
+    <p>Title: <%= @shop.title %></p>
+    <p>Address: <%= @shop.address %></p>
+    <p>Phone: <%= @shop.phone %></p>
+    <p>Job: <%= @shop.job %></p>
 
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+    <% if @shop.ratings.empty? %>
+      <p>No Rating Yet !</p>
+    <% else %>
+      <p>Like: <%= @shop.likes %></p>
+      <p>Dislike: <%= @shop.dislikes %></p>
+      <p>Stars: <%= @shop.average_stars %></p>
+    <% end %>
+  </div>
+</body>
+</html>

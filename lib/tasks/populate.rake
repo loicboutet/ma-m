@@ -22,4 +22,10 @@ task populate: :environment do
                   job: shop['job'].chomp,
                )
   end
+
+  if User.count == 0
+    u = User.new({:email => "toto@toto.com", :password => "tototata", :password_confirmation => "tototata" })
+    u.skip_confirmation!
+    u.save!
+  end
 end

@@ -11,17 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150925175608) do
-=======
-ActiveRecord::Schema.define(version: 20150925184207) do
->>>>>>> 4368ddf79ae72719c236f5d0b1ea49eb56538d64
+ActiveRecord::Schema.define(version: 20150925234012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
+  create_table "ratings", force: :cascade do |t|
+    t.boolean  "like"
+    t.integer  "stars"
+    t.integer  "shop_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["shop_id"], name: "index_ratings_on_shop_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
+
   create_table "shops", force: :cascade do |t|
     t.string   "title"
     t.string   "phone"
@@ -31,7 +37,6 @@ ActiveRecord::Schema.define(version: 20150925184207) do
     t.datetime "updated_at", null: false
   end
 
->>>>>>> 4368ddf79ae72719c236f5d0b1ea49eb56538d64
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
