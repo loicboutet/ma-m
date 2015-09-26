@@ -1,33 +1,126 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <div>
-    <p>Title: <%= @shop.title %></p>
-    <p>Address: <%= @shop.address %></p>
-    <p>Phone: <%= @shop.phone %></p>
-    <p>Job: <%= @shop.job %></p>
+<p id="notice"><%= notice %></p>
+<div class="container">
+                    
+  <div class="block-header">
+  	<h2><%= @shop.title %></h2>
+    <h2><small>Créé le : <%= @shop.created_at %>, Mis à jour le : <%= @shop.updated_at %></small> <%= link_to 'Edit', edit_shop_path(@shop) %> |
+		<%= link_to 'Back', shops_path %></h2>
 
-    <% if @shop.ratings.empty? %>
-      <p>No Rating Yet !</p>
-    <% else %>
-      <p>Like: <%= @shop.likes %></p>
-      <p>Dislike: <%= @shop.dislikes %></p>
-      <p>Stars: <%= @shop.average_stars %></p>
-    <% end %>
-
-    <% if @shop.comments.empty? %>
-      <p>No Comment Yet !</p>
-    <% else %>
-      <p>Comments: </p>
-      <% @shop.comments.each do |comment| %>
-        <div>
-          <%= comment.comment %>
+	<div class="card" id="profile-main">
+	<div class="pm-overview c-overflow" tabindex="3" style="overflow: hidden; outline: none;">
+    <div class="pmo-pic">
+      <div class="p-relative">
+        <a href="">
+          <img class="img-responsive" src="/assets/profile-pics/profile-pic-2.jpg" alt=""> 
+        </a>
+        <div class="dropdown pmop-message">
+          <a href="#site_photos" class="btn bgm-white btn-float z-depth-1 waves-effect waves-circle waves-float">
+            <i class="zmdi zmdi-camera"></i>
+          </a>
         </div>
-      <% end %>
-    <% end %>
+      </div> 
+      <div class="pmo-stat">
+        <h2 class="m-0 c-white"><%= @shop.title %></h2>
+      </div>
+      <div class="pmo-block pmo-contact hidden-xs">
+        <h2>Contact</h2>
+        
+        <ul>
+            <li><i class="zmdi zmdi-phone"></i><%= @shop.phone %> </li>
+            <li><i class="zmdi zmdi-email"></i> </li>
+            <li><i class="zmdi zmdi-facebook-box"></i> </li>
+            <li>
+                <i class="zmdi zmdi-pin"></i>
+                <address class="m-b-0"><%= @shop.address %> 
+                </address>
+            </li>
+        </ul>
+    </div>
+    </div>
+	</div>	
+  
+  
+      
+      <div class="pm-body clearfix">
+          <ul class="tab-nav tn-justified" tabindex="1" style="overflow: hidden; outline: none;">
+            <li class="active waves-effect"><%= @shop.title %><br></li>
+          </ul>
+      <ul class="tab-nav tn-justified" tabindex="1" style="overflow: hidden; outline: none;">
+        <li class="active waves-effect"><a href="profile-about.html">About</a></li>
+        <li class="waves-effect"><a href="profile-timeline.html">Timeline</a></li>
+        <li class="waves-effect"><a href="profile-photos.html">Photos</a></li>
+        <li class="waves-effect"><a href="profile-connections.html">Connections</a></li>
+      </ul> 
+  <div class="pmb-block">
+	    <div class="pmbb-header">
+	        <h2><i class="zmdi zmdi-equalizer m-r-5"></i> Summary</h2>
+	        
+	        <ul class="actions">
+	            <li class="dropdown">
+	                <a href="" data-toggle="dropdown">
+	                    <i class="zmdi zmdi-more-vert"></i>
+	                </a>
+	                
+	                <ul class="dropdown-menu dropdown-menu-right">
+	                    <li>
+	                        <a data-pmb-action="edit" href="">Edit</a>
+	                    </li>
+	                </ul>
+	            </li>
+	        </ul>
+	    </div>
+	    <div class="pmbb-body p-l-30">
+	        <div class="pmbb-view">
+	            Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.
+	        </div>
+	        
+	        <div class="pmbb-edit">
+	            <div class="fg-line">
+	                <textarea class="form-control" rows="5" placeholder="Summary...">Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.</textarea>
+	            </div>
+	            <div class="m-t-10">
+	                <button class="btn btn-primary btn-sm waves-effect">Save</button>
+	                <button data-pmb-action="reset" class="btn btn-link btn-sm waves-effect">Cancel</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>      
+          
+          
+          
+          <div class="pmb-block">
+            <div class="pmbb-header">
+              <h2><i class="zmdi zmdi-account m-r-5"></i> Basic Information</h2>
+                  
+	              <ul class="actions">
+	                <li class="dropdown">
+	                  <a href="" data-toggle="dropdown">
+	                    <i class="zmdi zmdi-more-vert"></i>
+	                  </a>
+	                      
+	                  <ul class="dropdown-menu dropdown-menu-right">
+	                    <li>
+	                      <a data-pmb-action="edit" href="">Edit</a>
+	                    </li>
+	                  </ul>
+	                </li>
+	              </ul>
+              </div>
+              <div class="pmbb-body p-l-30">
+                  <div class="pmbb-view">
+                      <dl class="dl-horizontal">
+                          <dt>Adressed</dt>
+                          <dd></dd>
+                      </dl>
+                      <dl class="dl-horizontal">
+                          <dt>Téléphone</dt>
+                          <dd><%= @shop.phone %> </dd>
+                      </dl>
+                  </div>
+              </div>
+          </div>   
+      </div>
   </div>
+</div>
 </body>
 </html>
