@@ -2,8 +2,24 @@
 <div class="container">
                     
   <div class="block-header">
-  	<h2><%= @shop.title %></h2>
-    <h2><small><%= @shop.job.capitalize %></small></h2>
+  	<div class="row">
+  		<div class="col-md-4">
+
+  	<h2 class="block-header"><%= @shop.title %></h2>
+    <h2><small><%= @shop.job.capitalize %></small></h2><h2 class="note"></h2><img src=""> <img src=""> 
+    	</div>
+
+    	<div class="col-md-4">
+    		<%= @shop.average_stars %>
+    	</div>
+
+    	<div class="col-md-4">
+    		
+    	</div>
+		</div>
+    <div class="rating">
+    	
+    </div>
 
 	<div class="card" id="profile-main">
 	<div class="pm-overview c-overflow" tabindex="3" style="overflow: hidden; outline: none;">
