@@ -20,6 +20,10 @@ task populate: :environment do
                   phone: phone.chomp,
                   address: shop['address'].chomp,
                   job: shop['job'].chomp,
+                  email: 'wild_code_school@gmail.com',
+                  site: 'wild_code_school.com',
+                  facebook: 'wild.code.school',
+                  twitter: 'wild.code.school',
                )
   end
 
