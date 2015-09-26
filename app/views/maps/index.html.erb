@@ -1,0 +1,100 @@
+<% content_for :javascripts do %>
+<script type='text/javascript'>
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+      internal: {id: 'basic_map'},
+      provider: {
+        styles: [{"featureType":"administrative.locality","elementType":"all","stylers":[{"hue":"#ffa800"},{"saturation":7},{"lightness":19},{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":100},{"visibility":"simplified"}]},{"featureType":"poi","elementType":"all","stylers":[{"hue":"#00ffd8"},{"saturation":-100},{"lightness":100},{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"hue":"#00ffd8"},{"saturation":"-48"},{"lightness":31},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"hue":"#00ffd8"},{"saturation":"80"},{"lightness":31},{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"labels","stylers":[{"hue":"#00ffd8"},{"saturation":-93},{"lightness":-2},{"visibility":"simplified"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"hue":"#00ffd8"},{"saturation":-90},{"lightness":-8},{"visibility":"simplified"}]},{"featureType":"transit","elementType":"all","stylers":[{"hue":"#00ffd8"},{"saturation":10},{"lightness":69},{"visibility":"on"}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#e9ebed"},{"saturation":-78},{"lightness":67},{"visibility":"simplified"}]}],
+        zoom: 13,
+        disableDefaultUI: true
+      }
+    }, function(){
+      if(navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(displayOnMap);
+    });
+
+    function displayOnMap(position){
+     var marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+        "picture": {
+            "url": "https://files.slack.com/files-pri/T080QEJAY-F0BC164RK/puce_orange.png",
+            "width":  40,
+            "height": 60
+          }
+      });
+      handler.map.centerOn(marker);
+      handler.addMarker({
+          lat: 48.4480896,
+          lng: 1.4895808,
+          "picture": {
+            "url": "https://files.slack.com/files-pri/T080QEJAY-F0BC5KS02/puce_bleu.png",
+            "width":  40,
+            "height": 60
+          }
+        })
+
+      handler.addMarker(
+        {
+          lat: 48.447579,
+          lng: 1.5202004,
+          "picture": {
+            "url": "https://files.slack.com/files-pri/T080QEJAY-F0BC5KS02/puce_bleu.png",
+            "width":  40,
+            "height": 60
+          }
+        }
+      )
+    };
+
+    $("#query").typed({
+        strings: ["First sentence.", "Second sentence."],
+        typeSpeed: 0
+      });
+
+</script>
+<% end %>
+
+<% content_for :full_width do %>
+
+<div style=''>
+  <div id="basic_map" style='height: 560px;'></div>
+  <div id="ribbon" style="width:100%; background-color:#4285F4;position:absolute;top:400px; height: 80px; padding-top:15px">
+    <div class="row">
+      <div class="container">
+        <div class="col-xs-9">
+          <div class="fg-line form-group">
+            <input type="text" id="query" class="form-control input-sm" style="height: 50px; padding-left:10px" placeholder="Je cherche des fleurs pour mon ex">
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="fg-line form-group">
+            <input type="text" id="location" class="form-control input-sm" style="height: 50px; padding-left:10px" placeholder="Chartres">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="width:100%; background-color:#4285F4; height: 20px; color:white; text-align:center; font-weight:bold">
+  LE TOP DE VOTRE VILLE
+</div>
+<div class="row">
+    <div class="col-xs-2" style="background-image: url(/assets/index1.jpg);min-height:192px">&nbsp;
+    </div>
+    <div class="col-xs-2">
+      <img src="/assets/gold_cup.png" height="100%">
+    </div>
+    <div class="col-xs-2" style="background-image: url(/assets/index2.jpg);min-height:192px">&nbsp;
+    </div>
+    <div class="col-xs-2">
+      <img src="/assets/silver_cup.png" height="100%">
+    </div>
+    <div class="col-xs-2" style="background-image: url(/assets/index3.png);min-height:192px">&nbsp;
+    </div>
+    <div class="col-xs-2">
+      <img src="/assets/bronze_cup.png" height="100%">
+    </div>
+</div>
+
+<% end %>

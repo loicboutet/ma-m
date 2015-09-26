@@ -12,7 +12,10 @@ class ShopsController < ApplicationController
       shop_ids += algolia_result['hits'].map { |hit| hit['objectID'] }
     end
     @shops = Shop.where(id: shop_ids)
-    render json: @shops
+    respond_to do |format|
+      format.json{render json: @shops}
+      format.html
+    end
   end
 
   # GET /shops/1

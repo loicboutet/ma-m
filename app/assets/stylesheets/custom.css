@@ -1,12 +1,91 @@
+/*SHOW.HTML.ERB*/
+/*session avis*/
+.lv-message .lv-item:not(.right) .ms-item {
+	background: #fff;
+	border: 2px #fcb449 solid;
+  color: #000 ;
+  max-width: 100%;
+}
+
+/* HEADER */
+.block-header{
+	margin-top: 25px;
+}
+.block-header > h2 {
+    font-size: 15px;
+    color: #777;
+    margin: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+/*rating header */
+.inline-image {
+	 display:inline;
+}
+
+/* star-code*/
+.average_star {
+	margin-top: 25px;
+	background-color: #fcb449;
+}
+h2.note {
+  text-align: center;
+  font-size: 30px;
+  font-style: italic;
+  color: #fff;
+}
+.star_img {
+	padding-top: 21px;
+}
+/* LIKE */
+
+.like {
+  margin-top: 25px;
+}
+
+.fa-thumbs-o-up:before {
+  color: #777;
+}
+
+.fa-thumbs-o-down:before {
+  color: #777;
+}
+
+.like_note {
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    color: #777;
+    padding:0 0 0 10px;
+}
+
+.fa-thumbs-o-down {
+  padding-left: 10px;
+}
+
+/* ONGLETS */
+.tab-nav.tn-justified > li{
+  padding: 15px 0 0 0;
+}
+
+
 /* NEW.HTML.ERB - sessions*/
 /*login-navigation*/
+
+.without_bottom_margin{
+  padding-bottom: 0px;
+  margin: 0px;
+  background-color: #edecec;
+
+}
 
 .login-navigation > li:hover{
 	    font-size: 12px;
 	    padding: 10px 20px;
 }
 
-.login-navigation a{
+.login-navigation a {
 	color: #fff;
 
 }
@@ -18,14 +97,6 @@
 	margin-top: 0;
 }
 
-/* SHOW.HTML.ERB*/
-/*profile_main*/
-
-.tab-nav.tn-justified > li {
-	color: #4285F4;
-	font-size: 22px;
-	padding: 15px 0 15px 0;
-}
 
 /* APPLICATION.HTML.ERB*/
 /*rating stars*/
@@ -33,18 +104,21 @@
 @import url(../font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
-body{ margin: 20px; }
+body {
+  margin: 20px;
+
+}
 h1 { font-size: 1.5em; margin: 10px; }
 
 /****** Style Star Rating Widget *****/
 
-.rating { 
+.rating {
   border: none;
   float: left;
 }
 
-.rating > input { display: none; } 
-.rating > label:before { 
+.rating > input { display: none; }
+.rating > label:before {
   margin: 5px;
   font-size: 1.25em;
   font-family: FontAwesome;
@@ -52,14 +126,14 @@ h1 { font-size: 1.5em; margin: 10px; }
   content: "\f005";
 }
 
-.rating > .half:before { 
+.rating > .half:before {
   content: "\f089";
   position: absolute;
 }
 
-.rating > label { 
-  color: #ddd; 
- float: right; 
+.rating > label {
+  color: #ddd;
+ float: right;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
@@ -71,16 +145,16 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > input:checked + label:hover, /* hover current star when changing rating */
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 
 
 /*button*/
 
-.logout{
+.logout {
 	margin-right: 10px;
 
 }
 .top-menu > li > a {
 	height: 28px;
-	margin-bottom: 5px;	
+	margin-bottom: 5px;
 	}

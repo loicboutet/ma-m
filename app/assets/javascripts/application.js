@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require vendor.js
+//= require gmaps/google
 //= require_tree .
