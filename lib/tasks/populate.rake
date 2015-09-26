@@ -1,5 +1,4 @@
 task populate: :environment do
-  %x(bundle exe rake db:drop db:create db:migrate)
   Shop.clear_index!
 
   data = JSON.parse(File.read("#{Rails.root}/lib/assets/populate.json"))
