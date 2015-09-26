@@ -21,4 +21,10 @@ class Shop < ActiveRecord::Base
   end
 
   # -- Methods
+
+  # Uploader
+
+  mount_uploader :profile_image, ImageUploader
+
+  # -- Uploader
 end
