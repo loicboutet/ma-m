@@ -3,24 +3,44 @@
                 <div class="container wall">
 
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
 
     <% @shops.each do |shop| %>
 
       <div class="card">
+        <a href="<%= shop_path shop %>">
+        <div class="card-body" style="display:relative">
+            <img class="" src="/assets/index1.jpg" alt="" style="width:250px; float:left; margin-right:10px">
+            <div class="details" style="width:270px; height:166px; float:right; font-size:13px; color:black; border-left:1px solid #ccc; padding-left:15px; padding-top:15px"> <br/>Détail des notes<br/><br/>
+              <span style="display: inline-block;width:70px;">SERVICES</span>
+                <% shop.stars.each do | star | %>
+                  <%= image_tag "star_#{star}.png", :class => "inline-image", :style => "height:20px" %>
+                <% end %><br/>
+              <span style="display: inline-block;width:70px;">PRIX</span>
+                <% shop.stars.each do | star | %>
+                  <%= image_tag "star_#{star}.png", :class => "inline-image", :style => "height:20px" %>
+                <% end %><br/>
+              <span style="display: inline-block;width:70px;">QUALITE</span>
+                <% shop.stars.each do | star | %>
+                  <%= image_tag "star_#{star}.png", :class => "inline-image", :style => "height:20px" %>
+                <% end %><br/>
 
-        <div class="card-body" style="display:flex">
-            <img class="" src="/assets/profile-pics/1.jpg" alt="" style="float:left; height:150px">
-            <div class="media-body m-t-5">
-                <h2><%= shop.title %></h2>
             </div>
-
-            <div class="comment">Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eget dolor id justo luctus commodo vel pharetra nisi. Donec velit libero, gravida vel diam ut, lobortis mollis quam. Morbi posuere egestas posuere. Curabitur in dui sollicitudin, lacinia magna at, laoreet sapien. Integer vitae eros nulla.</div>
-
+            <h2 style="font-size:15px; width:100%; padding-top:10px; color: #004184"><%= shop.title %></h2>
+            <div class="rating" style="font-size:11px; color: #004184; margin-bottom: 10px; width:427px">
+                <% shop.stars.each do | star | %>
+                  <%= image_tag "star_#{star}.png", :class => "inline-image", :style => "height:20px" %>
+                <% end %>
+                <%= shop.comments.count %> avis | 1er sur 10 <%= shop.job %> à Chartres<br/>
+            </div>
+            <div class="comments" style="font-size:11px; color: #004184">"Petit hôtel plein de chamr mais un peu défraichi" 12/09/2015</div>
+            <div class="comments" style="font-size:11px; color: #004184">"Un peu moyen, l'acceuil est bon mais les chambres ..." 12/09/2015</div>
+            <div class="comments" style="font-size:11px; color: #004184">"Petit hôtel plein de chamr mais un peu défraichi" 12/09/2015</div>
             <div class="wall-img-preview lightbox clearfix">
             </div>
 
         </div>
+        </a>
       </div>
 
     <% end %>
