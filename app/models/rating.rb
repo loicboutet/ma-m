@@ -6,6 +6,21 @@ class Rating < ActiveRecord::Base
 
   # -- Associations
 
+  # Callbacks
+
+  before_save   :update_stars
+
+  # -- Callbacks
+
+  # Methods
+
+  def update_stars
+    self.stars = (self.quality + self.price + self.service) / 3
+    self.save!
+  end
+
+  # -- Methods
+
   # Validations
 
   validates :like, :inclusion => {:in => [true, false]}
