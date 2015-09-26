@@ -32,6 +32,8 @@ class ShopsController < ApplicationController
     @stars[3] = 'full' if @shop.average_stars >= 4
     @stars[4] = 'half' if @shop.average_stars >= 4.5
     @stars[4] = 'full' if @shop.average_stars >= 5
+
+    @job_rating = @shop.job_rating
   end
 
   # GET /shops/new

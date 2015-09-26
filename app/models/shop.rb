@@ -37,6 +37,19 @@ class Shop < ActiveRecord::Base
     self.ratings.where(like: false).count
   end
 
+  def job_rating
+    data = Hash.new
+
+    Shop.where(job: self.job).each do |shop|
+      data[shop] = (shop.average_stars.nan?) ? 0 : shop.average_stars
+    end
+
+    data.sort_by{ |k, v| v }.each_with_index do |shop, index|
+      shop = shop.first
+      return "#{data.count - index} sur #{data.count}" if shop == self
+    end
+  end
+
   def likes
     self.ratings.where(like: true).count
   end
