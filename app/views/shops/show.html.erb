@@ -1,196 +1,132 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-                    
-  <div class="block-header">
-  	<div class="row">
-  		<div class="col-md-4 block-header">
-				<h2><%= @shop.title %></h2>
-		    <h2><small><%= @shop.job.capitalize %></small></h2>
-    	</div>
-
-    	<div class="col-md-1 block-header average_star" >
-    		<h2 class="note"><%= @shop.average_stars %></h2>
-    	</div>
-    	<div class="col-md-4 star_img">
-    		<% @stars.each do | star | %>
-    			<%= image_tag "star_#{star}.png", :class => "inline-image" %>
-    		<% end %>
-    	</div>
-    <div class="col-md-3 like">
-    	<i class="fa fa-thumbs-o-up fa-3x"></i><i class="like_note"><%= @shop.likes %></i><i class="fa fa-thumbs-o-down fa-3x"></i><i class="like_note"><%= @shop.dislikes %></i>
-    </div>
-	</div>
-
-	<div class="card" id="profile-main">
-	<div class="pm-overview c-overflow" tabindex="3" style="overflow: hidden; outline: none;">
-    <div class="pmo-pic">
-      <div class="p-relative">
-        <a href="">
-
-          <%= image_tag @shop.profile_image.url %>
-        </a>
-        <div class="dropdown pmop-message">
-          <a href="#site_photos" class="btn bgm-white btn-float z-depth-1 waves-effect waves-circle waves-float">
-            <i class="zmdi zmdi-camera"></i>
-          </a>
+  <div class="container">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-md-4 block-header">
+          <h2><%= @shop.title %></h2>
+          <h2><small><%= @shop.job.capitalize %></small></h2>
         </div>
-      </div> 
-      <div class="pmo-stat">
-        <h2 class="m-0 c-white"><%= @shop.title %></h2>
-      </div>
-      <div class="pmo-block pmo-contact hidden-xs">
-        <h2>Contact</h2>
-        
-        <ul>
-          <li><i class="fa fa-phone"></i></i><%= @shop.phone %></li>
-          <li><i class="fa fa-envelope-o"></i><%= @shop.email %></li>
-          <li><i class="fa fa-home"></i><%= @shop.site %></li> 
-          <li><i class="fa fa-facebook-square"></i><%= @shop.facebook %></li> 
-          <li><i class="fa fa-twitter-square"></i><%= @shop.twitter %></li> 
-          <li>
-              <i class="fa fa-map-marker"></i>
-              <address class="m-b-0"><%= @shop.address %> 
-              </address>
-          </li>
-          <!-- <li><i> horaires</i></li> -->
-        </ul>
-    </div>
-    </div>
-	</div>	
-  <div class="pm-body clearfix">
-      <ul class="tab-nav tn-justified" tabindex="1" style="overflow: hidden; outline: none;">
-        <li class="active waves-effect"><a href="profile-about.html">Infos</a></li>
-        <li class="waves-effect"><a href="profile-timeline.html">Avis</a></li>
-        <li class="waves-effect"><a href="profile-photos.html">Photos</a></li>
-        <li class="waves-effect"><a href="profile-connections.html">Commentaires</a></li>
-      </ul> 
-  <div class="pmb-block">
-    <div class="pmbb-header">
-      <h2><i class="zmdi zmdi-equalizer m-r-5"></i> Summary</h2>
-      
-      <ul class="actions">
-        <li class="dropdown">
-          <a href="" data-toggle="dropdown">
-            <i class="zmdi zmdi-more-vert"></i>
-          </a>
-            
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li>
-              <a data-pmb-action="edit" href="">Edit</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-	    <div class="pmbb-body p-l-30">
-        <div class="pmbb-view">
-          Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.
+        <div class="col-md-1 block-header average_star" >
+          <h2 class="note"><%= @shop.average_rating(:stars) %></h2>
         </div>
-	    </div>
-	</div>      
-          
-          
-          
-    <div class="pmb-block">
-      <div class="pmbb-header">
-        <h2><i class="zmdi zmdi-account m-r-5"></i> Basic Information</h2>
-            
-          <ul class="actions">
-            <li class="dropdown">
-              <a href="" data-toggle="dropdown">
-                <i class="zmdi zmdi-more-vert"></i>
-              </a>
-                  
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li>
-                  <a data-pmb-action="edit" href="">Edit</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <div class="col-md-4 star_img">
+          <% @stars.each do | star | %>
+            <%= image_tag "star_#{star}.png", :class => "inline-image" %>
+          <% end %>
         </div>
-      <div class="row">  
-        <div class="pmbb-body p-l-30 col-md-6">
-            <div class="pmbb-view ">
-                <dl class="dl-horizontal">
-                    <dt>Adressed</dt>
-                    <dd></dd>
-                </dl>
-                <dl class="dl-horizontal">
-                    <dt>Téléphone</dt>
-                    <dd><%= @shop.phone %> </dd>
-                </dl>
-            </div>
-        </div>
-        
-        <div class="pmbb-body p-l-30 col-md-6">
-        	<div class="row">
-            <div class="pmbb-view">
-              <dl class="dl-horizontal col-md-6">
-                <dt>DONNEZ votre avis</dt>
-              </dl>
-              <dl class="dl-horizontal col-md-6">
-                <dt>J'aime</dt>
-                <dt>J'aime pas</dt>
-              </dl>
-            </div>
-       		</div>
+        <div class="col-md-3 like">
+          <i class="fa fa-thumbs-o-up fa-3x"></i><i class="like_note"><%= @shop.likes %></i><i class="fa fa-thumbs-o-down fa-3x"></i><i class="like_note"><%= @shop.dislikes %></i>
         </div>
       </div>
-    </div> 
-    <div class="listview lv-message">
-      <div class="lv-body">                                    
-          <div class="lv-item media">
-              <div class="lv-avatar pull-left">
-                  <img src="/assets/profile-pics/1.jpg" alt="">
-              </div>
-              <div class="media-body">
-                  <div class="ms-item">
-                      Quisque consequat arcu eget odio cursus, ut tempor arcu vestibulum. Etiam ex arcu, porta a urna non, lacinia pellentesque orci. Proin semper sagittis erat, eget condimentum sapien viverra et. Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
-                  </div>
-                  <small class="ms-date"><i class="zmdi zmdi-access-time"></i> 20/02/2015 at 09:00</small>
-              </div>
-          </div>
-          <div class="lv-item media">
-              <div class="lv-avatar pull-left">
-                  <img src="/assets/profile-pics/1.jpg" alt="">
-              </div>
-              <div class="media-body">
-                  <div class="ms-item">
-                      Etiam ex arcumentum
-                  </div>
-                  <small class="ms-date"><i class="zmdi zmdi-access-time"></i> 20/02/2015 at 09:33</small>
-              </div>
-          </div>
-          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingTwo">
-          <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="fa fa-chevron-down collapse">
-             Afficher la suite 
-            </a>
-          </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="lv-item media">
-              <div class="lv-avatar pull-left">
-                  <img src="/assets/profile-pics/1.jpg" alt="">
-              </div>
-              <div class="media-body panel-body">
-                  <div class="ms-item">
-                      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ac tortor ut elit sodales varius. Mauris id ipsum id mauris malesuada tincidunt. Vestibulum elit massa, pulvinar at sapien sed, luctus vestibulum eros. Etiam finibus tristique ante, vitae rhoncus sapien volutpat eget
-                  </div>
-                  <small class="ms-date"><i class="zmdi zmdi-access-time"></i> 20/02/2015 at 10:24</small>
-              </div>
-          </div>
-    </div>
-      
+      <div class="card" id="profile-main">
+  <div class="pm-overview c-overflow" tabindex="3" style="overflow: hidden; outline: none;">
+  <div class="pmo-pic">
+  <div class="p-relative">
+  <a href=""><%= image_tag @shop.profile_image.url %>
+  </a>
+  </div> 
+  <div class="pmo-stat">
+  <h2 class="m-0 c-white"><%= @job_rating %></h2><br>
+  <h2 class="m-0 c-white job_position"><%= @shop.job %> à Chatres</h2>
   </div>
-          
-      </div>
-  	</div>  
-	</div>
-</div>
-</div>
-</body>
+  <div class="pmo-block pmo-contact hidden-xs">
+  <h2>Contact</h2><ul>
+  <li><i class="fa fa-phone"></i></i><%= @shop.phone %></li>
+  <li><i class="fa fa-envelope-o"></i><%= @shop.email %></li>
+  <li><i class="fa fa-home"></i><%= @shop.site %></li> 
+  <li><i class="fa fa-facebook-square"></i><%= @shop.facebook %></li> 
+  <li><i class="fa fa-twitter-square"></i><%= @shop.twitter %></li> 
+  <li>
+  <i class="fa fa-map-marker"></i>
+  <address class="m-b-0"><%= @shop.address %> 
+  </address>
+  </li>
+  <!-- <li><i> horaires</i></li> -->
+  </ul>
+  </div>
+  </div>
+  </div>	
+  <div class="pm-body clearfix">
+  <ul class="tab-nav tn-justified" tabindex="1" style="overflow: hidden; outline: none;">
+  <li class="active waves-effect"><a href="profile-about.html">Infos</a></li>
+  <li class="waves-effect"><a href="profile-timeline.html">Avis</a></li>
+  <li class="waves-effect"><a href="profile-photos.html">Photos</a></li>
+  <li class="waves-effect"><a href="profile-connections.html">Commentaires</a></li>
+  </ul> 
+  <div class="pmb-block info">
+  <div class="pmbb-header">
+  <h2><i class="fa fa-file-text-o"></i>Summary</h2></div>
+  <div class="pmbb-body p-l-30">
+  <div class="pmbb-view">
+  Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.
+  </div>
+  </div>
+  </div>
+  <div class="pmb-block detail">
+  <div class="pmbb-header">
+  </div>
+  <div class="row">  
+  <div class="pmbb-body p-l-30 col-md-6">
+  <div class="pmbb-header">
+  <h2 class ="detail">Détails des notes</h2>
+  <div class="detail_ranking">
+  <span style="display: inline-block;width:70px;">SERVICES</span>
+  <% @services.each do | star | %>
+  <%= image_tag "star_#{star}.png", :class => "inline-image", :height => "20" %>
+  <% end %>
+  </div>
+  <div class="detail_ranking">
+  <span style="display: inline-block;width:70px;">PRIX</span><% @price.each do | star | %>
+  <%= image_tag "star_#{star}.png", :class => "inline-image", :height => "20"  %>
+  <% end %>
+  </div>
+  <div class="detail_ranking">
+  <span style="display: inline-block;width:70px;">QUALITE</span>
+  <% @quality.each do | star | %>
+  <%= image_tag "star_#{star}.png", :class => "inline-image", :height => "20"  %>
+  <% end %>
+  </div>
+  </div>
+  </div><div class="pmbb-body p-l-30 col-md-6">
+  <div class="row">
+  <div class="pmbb-header">
+  <div class="dl-horizontal col-md-6 testimonial">
+  <h2 class ="testimonial">Donnez <br> votre <br>avis</h2>
+  </div>
+  <div class="dl-horizontal col-md-6">
+  <%= link_to "/ratings/new?shop_id=#{@shop.id}&like=true" do  %>
+    <img src="/assets/button_like.png" alt="">
+  <% end %>
+  <%= link_to "/ratings/new?shop_id=#{@shop.id}&like=false" do  %>
+    <img src="/assets/button_dislike.png" alt="">
+  <% end %> 
+  </div>
+  </div>
+  </div>
+  </div>
+  </div> 
+  <div class="listview lv-message">
+  <div class="lv-body">
+  <% @shop.comments.each do | comment | %>                                   
+  <div class="lv-item media">
+  <div class="lv-avatar pull-left">
+  <img src="/assets/profile-pics/1.jpg" alt="">
+  </div>
+  <div class="media-body">
+  <div class="ms-item">
+  <%= comment.comment %>
+  </div>
+  <small class="ms-date"><i class="zmdi zmdi-access-time"></i> 20/02/2015 at 09:00</small>
+  </div>
+  </div>
+  <% end %>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>  
+  </div>
+  </div>
+  </div>
+  </body>
 </html>

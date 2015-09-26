@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20150926200005) do
     t.string   "site"
     t.string   "facebook"
     t.string   "twitter"
-    t.integer  "algolia_id"
     t.float    "lat"
     t.float    "lng"
   end
