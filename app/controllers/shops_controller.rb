@@ -4,7 +4,14 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    shop_ids = Array.new
+    algolia_result = Shop.raw_search(params['query'], aroundLatLng: "#{params['lat']},#{params['lng']}", aroundRadius: 5000)
+    shop_ids += algolia_result['hits'].map { |hit| hit['objectID'] }
+    while algolia_result['page'] + 1 < algolia_result['nbPages']
+      algolia_result = Shop.raw_search(params['query'], page: algolia_result['page'] + 1, aroundLatLng: "#{params['lat']},#{params['lng']}", aroundRadius: 5000)
+      shop_ids += algolia_result['hits'].map { |hit| hit['objectID'] }
+    end
+    @shops = Shop.where(id: shop_ids)
     respond_to do |format|
       format.json{render json: @shops}
       format.html
@@ -14,6 +21,17 @@ class ShopsController < ApplicationController
   # GET /shops/1
   # GET /shops/1.json
   def show
+    @stars = ['empty', 'empty', 'empty', 'empty', 'empty']
+    @stars[0] = 'half' if @shop.average_stars >= 0.5
+    @stars[0] = 'full' if @shop.average_stars >= 1
+    @stars[1] = 'half' if @shop.average_stars >= 1.5
+    @stars[1] = 'full' if @shop.average_stars >= 2
+    @stars[2] = 'half' if @shop.average_stars >= 2.5
+    @stars[2] = 'full' if @shop.average_stars >= 3
+    @stars[3] = 'half' if @shop.average_stars >= 3.5
+    @stars[3] = 'full' if @shop.average_stars >= 4
+    @stars[4] = 'half' if @shop.average_stars >= 4.5
+    @stars[4] = 'full' if @shop.average_stars >= 5
   end
 
   # GET /shops/new

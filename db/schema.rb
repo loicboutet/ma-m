@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926061446) do
+ActiveRecord::Schema.define(version: 20150926141622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 20150926061446) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "quality"
+    t.integer  "service"
+    t.integer  "price"
   end
 
   add_index "ratings", ["shop_id"], name: "index_ratings_on_shop_id", using: :btree
@@ -44,8 +47,16 @@ ActiveRecord::Schema.define(version: 20150926061446) do
     t.string   "phone"
     t.string   "address"
     t.string   "job"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "profile_image"
+    t.string   "email"
+    t.string   "site"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.integer  "algolia_id"
+    t.float    "lat"
+    t.float    "lng"
   end
 
   create_table "users", force: :cascade do |t|

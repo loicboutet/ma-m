@@ -56,4 +56,8 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-
+gem 'carrierwave'
+gem 'fog'
+gem "algoliasearch-rails"
+gem 'geokit-rails'
+gem 'geocoder'
