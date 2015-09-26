@@ -15,6 +15,7 @@ class RatingsController < ApplicationController
   # GET /ratings/new
   def new
     @rating = Rating.new
+    @shop_id = params['shop_id']
   end
 
   # GET /ratings/1/edit
@@ -24,17 +25,20 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.json
   def create
-    @rating = Rating.new(rating_params)
-
-    respond_to do |format|
-      if @rating.save
-        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
-        format.json { render :show, status: :created, location: @rating }
-      else
-        format.html { render :new }
-        format.json { render json: @rating.errors, status: :unprocessable_entity }
-      end
-    end
+    @comment = Comment.create(
+                                comment: params['comment']['text'],
+                                regular: (params['tata'] == 'regular'),
+                                user: current_user,
+                                shop: Shop.find(params['shop_id']),
+                                data: DateTime.now,
+                              )
+    @rating = Rating.create(
+                              quality: params['rating']['quality'],
+                              service: params['rating']['service'],
+                              price: params['rating']['price'],
+                              user: current_user,
+                              shop: Shop.find(params['shop_id']),
+                            )
   end
 
   # PATCH/PUT /ratings/1

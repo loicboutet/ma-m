@@ -1,5 +1,26 @@
-<h1>New Rating</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', ratings_path %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <%= form_tag("/ratings?shop_id=#{@shop_id}", method: "post") do %>
+    <%= label_tag(:comment, "Votre commentaire:") %> <br>
+    <%= text_area(:comment, :text, size: "40x3") %> <br>
+    Vous êtes :
+    <select id="regular", name="regular">
+      <option value="regular"> Un client habituel </option>
+      <option value="not_regular"> Une client de passage </option>
+    </select> <br>
+    Note : <br>
+    <% ["quality", "service", "price"].each do |type| %>
+      <%= type.capitalize %> :
+      <% (0..4).each do |i|  %>
+        <%= radio_button("rating", type, i) %>
+      <% end %>
+      <br>
+    <% end %>
+    <%= submit_tag("Créer") %>
+  <% end %>
+</body>
+</html>
