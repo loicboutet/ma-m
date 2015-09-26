@@ -5,6 +5,11 @@ class ShopsController < ApplicationController
   # GET /shops.json
   def index
     shop_ids = Array.new
+    if params[:location]
+      coordinates = Geocoder.coordinates(params[:location])
+      params[:lat] = coordinates.first
+      params[:lng] = coordinates.last
+    end
     algolia_result = Shop.raw_search(params['query'], aroundLatLng: "#{params['lat']},#{params['lng']}", aroundRadius: 5000)
     shop_ids += algolia_result['hits'].map { |hit| hit['objectID'] }
     while algolia_result['page'] + 1 < algolia_result['nbPages']

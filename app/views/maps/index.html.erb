@@ -52,6 +52,7 @@
         typeSpeed: 0
       });
 
+
 </script>
 <% end %>
 
@@ -62,16 +63,22 @@
   <div id="ribbon" style="width:100%; background-color:#4285F4;position:absolute;top:400px; height: 80px; padding-top:15px">
     <div class="row">
       <div class="container">
+        <%= form_tag shops_path, :method => :get do |f|%>
         <div class="col-xs-9">
+
           <div class="fg-line form-group">
-            <input type="text" id="query" class="form-control input-sm" style="height: 50px; padding-left:10px" placeholder="Je cherche des fleurs pour mon ex">
+            <%= text_field_tag "query", nil, :class => "form-control input-sm", :style => "font-size:18px; height: 47px; padding-left:10px", :placeholder => "Je cherche des fleurs pour mon ex" %>
           </div>
         </div>
         <div class="col-xs-3">
           <div class="fg-line form-group">
-            <input type="text" id="location" class="form-control input-sm" style="height: 50px; padding-left:10px" placeholder="Chartres">
+            <%= text_field_tag "location", nil, :class => "form-control input-sm", :style => "font-size:18px; height: 47px; padding-left:10px; width:65%; margin-right:5px; display:inline", :placeholder => "Chartres" %>
+            <%= button_tag :class => "btn btn-lg btn-info waves-effect" do %>
+              <i class="fa fa-search"></i>
+            <% end %>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
   </div>

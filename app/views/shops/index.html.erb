@@ -1,9 +1,33 @@
 <p id="notice"><%= notice %></p>
-            <section id="content">
-                <div class="container wall">
+<section id="content">
+  <div class="container wall">
+  <img src="/assets/imagetopartenairebis.png" style="height:100px">
+  <div id="ribbon" style="width:100%; background-color:#FFBF4B; height: 80px; padding-top:15px">
+    <div class="row">
+      <div class="container">
+        <%= form_tag shops_path, :method => :get do |f|%>
+        <div class="col-xs-7">
 
-                    <div class="row">
-                        <div class="col-md-12">
+          <div class="fg-line form-group">
+            <%= text_field_tag "query", nil, :class => "form-control input-sm", :style => "font-size:18px; height: 47px; padding-left:10px", :placeholder => "Je cherche des fleurs pour mon ex" %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="fg-line form-group">
+            <%= text_field_tag "location", nil, :class => "form-control input-sm", :style => "font-size:18px; height: 47px; padding-left:10px; width:65%; margin-right:5px; display:inline", :placeholder => "Chartres" %>
+            <%= button_tag :class => "btn btn-lg bgm-orange waves-effect" do %>
+              <i class="fa fa-search"></i>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+  </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
 
     <% @shops.each do |shop| %>
 
@@ -31,7 +55,7 @@
                 <% shop.stars.each do | star | %>
                   <%= image_tag "star_#{star}.png", :class => "inline-image", :style => "height:20px" %>
                 <% end %>
-                <%= shop.comments.count %> avis | 1er sur 10 <%= shop.job %> à Chartres<br/>
+                <%= shop.comments.count %> avis | <%= shop.job_rating %> <%= shop.job %> à Chartres<br/>
             </div>
             <div class="comments" style="font-size:11px; color: #004184">"Petit hôtel plein de chamr mais un peu défraichi" 12/09/2015</div>
             <div class="comments" style="font-size:11px; color: #004184">"Un peu moyen, l'acceuil est bon mais les chambres ..." 12/09/2015</div>
