@@ -38,9 +38,9 @@ task populate: :environment do
   user3.save!
 
   shop = Shop.first
-  rating1 = Rating.create(shop: shop, like: true, stars: 9, user: user1)
-  rating2 = Rating.create(shop: shop, like: true, stars: 7, user: user2)
-  rating3 = Rating.create(shop: shop, like: false, stars: 3, user: user3)
+  rating1 = Rating.create(shop: shop, like: true, stars: 9, user: user1, quality: 1, service: 2, price: 3)
+  rating2 = Rating.create(shop: shop, like: true, stars: 7, user: user2, quality: 4, service: 5, price: 6)
+  rating3 = Rating.create(shop: shop, like: false, stars: 3, user: user3, quality: 7, service: 8, price: 9)
   comment1 = Comment.create(shop: shop, comment: 'Coucou trop bien', user: user1)
   comment2 = Comment.create(shop: shop, comment: "J'aime les chats", user: user2)
   comment3 = Comment.create(shop: shop, comment: 'Pas assez de chats !', user: user3)

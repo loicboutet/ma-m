@@ -9,7 +9,7 @@ class Shop < ActiveRecord::Base
   # Methods
 
   def average_stars
-    self.ratings.pluck(:stars).sum / self.ratings.count
+    (self.ratings.pluck(:stars).sum.to_f / self.ratings.count).round(1)
   end
 
   def dislikes

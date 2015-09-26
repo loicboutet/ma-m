@@ -13,6 +13,18 @@ class Rating < ActiveRecord::Base
                                       greater_than_or_equal: 0,
                                       less_than_or_equal_to: 10,
                                     }
+  validates :service, numericality:   {
+                                        greater_than_or_equal: 0,
+                                        less_than_or_equal_to: 10,
+                                      }
+  validates :quality, numericality:   {
+                                        greater_than_or_equal: 0,
+                                        less_than_or_equal_to: 10,
+                                      }
+  validates :price, numericality:   {
+                                      greater_than_or_equal: 0,
+                                      less_than_or_equal_to: 10,
+                                    }
   validates :shop, presence: true
   validates :user, presence: true
 
