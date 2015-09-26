@@ -26,15 +26,17 @@
         <h2>Contact</h2>
         
         <ul>
-          <li><i class="fa fa-phone"></i></i><%= @shop.phone %> </li>
-          <li><i class="zmdi zmdi-email"></i> </li>
-          <li><i class="zmdi zmdi-facebook-box"></i> </li>
+          <li><i class="fa fa-phone"></i></i><%= @shop.phone %></li>
+          <li><i class="fa fa-envelope-o"></i><%= @shop.email %></li>
+          <li><i class="fa fa-home"></i><%= @shop.site %></li> 
+          <li><i class="fa fa-facebook-square"></i><%= @shop.facebook %></li> 
+          <li><i class="fa fa-twitter-square"></i><%= @shop.twitter %></li> 
           <li>
-              <i class="zmdi zmdi-pin"></i>
+              <i class="fa fa-map-marker"></i>
               <address class="m-b-0"><%= @shop.address %> 
               </address>
           </li>
-          <li><i> horaires</i></li>
+          <!-- <li><i> horaires</i></li> -->
         </ul>
     </div>
     </div>
