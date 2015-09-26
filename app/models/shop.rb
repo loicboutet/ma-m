@@ -29,8 +29,8 @@ class Shop < ActiveRecord::Base
     self.index!
   end
 
-  def average_stars
-    (self.ratings.pluck(:stars).sum.to_f / self.ratings.count / 2).round(1)
+  def average_rating(type)
+    (self.ratings.pluck(type).sum.to_f / self.ratings.count / 2).round(1)
   end
 
   def dislikes
@@ -41,7 +41,7 @@ class Shop < ActiveRecord::Base
     data = Hash.new
 
     Shop.where(job: self.job).each do |shop|
-      data[shop] = (shop.average_stars.nan?) ? 0 : shop.average_stars
+      data[shop] = (shop.average_rating(:stars).nan?) ? 0 : shop.average_rating(:stars)
     end
 
     data.sort_by{ |k, v| v }.each_with_index do |shop, index|

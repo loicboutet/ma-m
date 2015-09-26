@@ -22,17 +22,52 @@ class ShopsController < ApplicationController
   # GET /shops/1.json
   def show
     @stars = ['empty', 'empty', 'empty', 'empty', 'empty']
-    @stars[0] = 'half' if @shop.average_stars >= 0.5
-    @stars[0] = 'full' if @shop.average_stars >= 1
-    @stars[1] = 'half' if @shop.average_stars >= 1.5
-    @stars[1] = 'full' if @shop.average_stars >= 2
-    @stars[2] = 'half' if @shop.average_stars >= 2.5
-    @stars[2] = 'full' if @shop.average_stars >= 3
-    @stars[3] = 'half' if @shop.average_stars >= 3.5
-    @stars[3] = 'full' if @shop.average_stars >= 4
-    @stars[4] = 'half' if @shop.average_stars >= 4.5
-    @stars[4] = 'full' if @shop.average_stars >= 5
+    @stars[0] = 'half' if @shop.average_rating(:stars) >= 0.5
+    @stars[0] = 'full' if @shop.average_rating(:stars) >= 1
+    @stars[1] = 'half' if @shop.average_rating(:stars) >= 1.5
+    @stars[1] = 'full' if @shop.average_rating(:stars) >= 2
+    @stars[2] = 'half' if @shop.average_rating(:stars) >= 2.5
+    @stars[2] = 'full' if @shop.average_rating(:stars) >= 3
+    @stars[3] = 'half' if @shop.average_rating(:stars) >= 3.5
+    @stars[3] = 'full' if @shop.average_rating(:stars) >= 4
+    @stars[4] = 'half' if @shop.average_rating(:stars) >= 4.5
+    @stars[4] = 'full' if @shop.average_rating(:stars) >= 5
 
+    @quality = ['empty', 'empty', 'empty', 'empty', 'empty']
+    @quality[0] = 'half' if @shop.average_rating(:quality) >= 0.5
+    @quality[0] = 'full' if @shop.average_rating(:quality) >= 1
+    @quality[1] = 'half' if @shop.average_rating(:quality) >= 1.5
+    @quality[1] = 'full' if @shop.average_rating(:quality) >= 2
+    @quality[2] = 'half' if @shop.average_rating(:quality) >= 2.5
+    @quality[2] = 'full' if @shop.average_rating(:quality) >= 3
+    @quality[3] = 'half' if @shop.average_rating(:quality) >= 3.5
+    @quality[3] = 'full' if @shop.average_rating(:quality) >= 4
+    @quality[4] = 'half' if @shop.average_rating(:quality) >= 4.5
+    @quality[4] = 'full' if @shop.average_rating(:quality) >= 5
+
+    @services = ['empty', 'empty', 'empty', 'empty', 'empty']
+    @services[0] = 'half' if @shop.average_rating(:service) >= 0.5
+    @services[0] = 'full' if @shop.average_rating(:service) >= 1
+    @services[1] = 'half' if @shop.average_rating(:service) >= 1.5
+    @services[1] = 'full' if @shop.average_rating(:service) >= 2
+    @services[2] = 'half' if @shop.average_rating(:service) >= 2.5
+    @services[2] = 'full' if @shop.average_rating(:service) >= 3
+    @services[3] = 'half' if @shop.average_rating(:service) >= 3.5
+    @services[3] = 'full' if @shop.average_rating(:service) >= 4
+    @services[4] = 'half' if @shop.average_rating(:service) >= 4.5
+    @services[4] = 'full' if @shop.average_rating(:service) >= 5
+
+    @price = ['empty', 'empty', 'empty', 'empty', 'empty']
+    @price[0] = 'half' if @shop.average_rating(:price) >= 0.5
+    @price[0] = 'full' if @shop.average_rating(:price) >= 1
+    @price[1] = 'half' if @shop.average_rating(:price) >= 1.5
+    @price[1] = 'full' if @shop.average_rating(:price) >= 2
+    @price[2] = 'half' if @shop.average_rating(:price) >= 2.5
+    @price[2] = 'full' if @shop.average_rating(:price) >= 3
+    @price[3] = 'half' if @shop.average_rating(:price) >= 3.5
+    @price[3] = 'full' if @shop.average_rating(:price) >= 4
+    @price[4] = 'half' if @shop.average_rating(:price) >= 4.5
+    @price[4] = 'full' if @shop.average_rating(:price) >= 5
     @job_rating = @shop.job_rating
   end
 
