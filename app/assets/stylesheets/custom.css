@@ -6,8 +6,31 @@
   color: #000 ;
   max-width: 100%;
 }
+.pmb-block {
+  border-top: 1px, solid, #777;
+}
+.listview{
+  margin-top: 15px;
+}
+
+#profile-main .pmb-block .pmbb-header h2  {
+  margin-bottom: 10px;
+}
+.fa {
+  margin-right: 5px;  
+}
+.detail_ranking{
+  margin: 10px 0 10px 0; 
+}
+.testimonial{
+  margin-top: 15px;
+  text-align: center;
+}
 
 /* HEADER */
+#header {
+  background: #3ca5dc;
+}
 .block-header{
 	margin-top: 25px;
 }
@@ -65,24 +88,41 @@ h2.note {
 }
 
 /* ONGLETS */
-.tab-nav.tn-justified > li{
+.tab-nav.tn-justified > li {
   padding: 15px 0 0 0;
 }
 
+/*BLOC INFOS*/
+#profile-main .pmb-block.info {
+  padding: 40px 42px 25px;
+  border-bottom: solid 2px #edecec;
+  margin-bottom: 0;
+}
+#profile-main .pmb-block.detail {
+  padding: 0 42px 0;
+}
+
+/* ASIDE */
+#profile-main .pmo-pic .pmo-stat {
+  background: #3ca5dc;
+}
+.job_position {
+  font-size: 20px;  
+}
 
 /* NEW.HTML.ERB - sessions*/
 /*login-navigation*/
 
-.without_bottom_margin{
-  padding-bottom: 0px;
+.without_bottom_margin {
+  padding-bottom: 30px;
   margin: 0px;
   background-color: #edecec;
 
 }
 
-.login-navigation > li:hover{
-	    font-size: 12px;
-	    padding: 10px 20px;
+.login-navigation > li:hover {
+	font-size: 12px;
+	padding: 10px 20px;
 }
 
 .login-navigation a {
