@@ -11,6 +11,17 @@ class ShopsController < ApplicationController
   # GET /shops/1
   # GET /shops/1.json
   def show
+    @stars = ['empty', 'empty', 'empty', 'empty', 'empty']
+    @stars[0] = 'half' if @shop.average_stars >= 0.5
+    @stars[0] = 'full' if @shop.average_stars >= 1
+    @stars[1] = 'half' if @shop.average_stars >= 1.5
+    @stars[1] = 'full' if @shop.average_stars >= 2
+    @stars[2] = 'half' if @shop.average_stars >= 2.5
+    @stars[2] = 'full' if @shop.average_stars >= 3
+    @stars[3] = 'half' if @shop.average_stars >= 3.5
+    @stars[3] = 'full' if @shop.average_stars >= 4
+    @stars[4] = 'half' if @shop.average_stars >= 4.5
+    @stars[4] = 'full' if @shop.average_stars >= 5
   end
 
   # GET /shops/new
