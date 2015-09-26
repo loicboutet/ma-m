@@ -5,7 +5,10 @@ class ShopsController < ApplicationController
   # GET /shops.json
   def index
     @shops = Shop.all
-    render json: @shops
+    respond_to do |format|
+      format.json{render json: @shops}
+      format.html
+    end
   end
 
   # GET /shops/1
