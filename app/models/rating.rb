@@ -16,7 +16,6 @@ class Rating < ActiveRecord::Base
 
   def update_stars
     self.stars = (self.quality + self.price + self.service) / 3
-    self.save!
   end
 
   # -- Methods

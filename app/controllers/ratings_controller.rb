@@ -28,19 +28,20 @@ class RatingsController < ApplicationController
   def create
     @comment = Comment.create(
                                 comment: params['comment']['text'],
-                                regular: (params['tata'] == 'regular'),
+                                regular: (params['regular'] == 'regular'),
                                 user: current_user,
                                 shop: Shop.find(params['shop_id']),
-                                data: DateTime.now,
+                                date: DateTime.now,
                               )
     @rating = Rating.create(
                               quality: params['rating']['quality'],
                               service: params['rating']['service'],
                               price: params['rating']['price'],
                               user: current_user,
-                              shop: Shop.find(params['shop_id'],
-                              like: params['like']),
+                              shop: Shop.find(params['shop_id']),
+                              like: params['like'],
                             )
+    redirect_to "/shops/#{params['shop_id']}"
   end
 
   # PATCH/PUT /ratings/1

@@ -1,3 +1,6 @@
+a:hover {
+
+}
 /*SHOW.HTML.ERB*/
 /*session avis*/
 .lv-message .lv-item:not(.right) .ms-item {
@@ -19,13 +22,18 @@
 .fa {
   margin-right: 5px;  
 }
-.detail_ranking{
+.detail_ranking {
   margin: 10px 0 10px 0; 
 }
 .testimonial{
   margin-top: 15px;
   text-align: center;
 }
+
+#hidden_modal{
+  display:none;
+}
+
 
 /* HEADER */
 #header {
