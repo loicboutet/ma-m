@@ -40,4 +40,9 @@ task populate: :environment do
   comment1 = Comment.create(shop: shop, comment: 'Coucou trop bien', user: user1)
   comment2 = Comment.create(shop: shop, comment: "J'aime les chats", user: user2)
   comment3 = Comment.create(shop: shop, comment: 'Pas assez de chats !', user: user3)
+
+  File.open("#{Rails.root}/app/assets/images/shop_1_profile_image.jpg") do |f|
+    shop.profile_image = f
+    shop.save!
+  end
 end
