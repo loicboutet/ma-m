@@ -1,5 +1,12 @@
 a:hover {
+  background-color: #3ca5dc;
+  color: #fff;
+  text-decoration: none;
 
+}
+
+.tab-nav > li > a:hover{
+  color: #fff;
 }
 /*SHOW.HTML.ERB*/
 /*session avis*/
@@ -9,9 +16,11 @@ a:hover {
   color: #000 ;
   max-width: 100%;
 }
+
 .pmb-block {
   border-top: 1px, solid, #777;
 }
+
 .listview{
   margin-top: 15px;
 }
@@ -19,12 +28,27 @@ a:hover {
 #profile-main .pmb-block .pmbb-header h2  {
   margin-bottom: 10px;
 }
+
+#profile-main .pmo-pic .pmo-stat {
+  padding: 15px 5px 15px;
+}
+#profile-main .pmo-pic img{
+  min-height: 259px;  
+}
+
+.img .avatar {
+  height: 259px; 
+
+}
+
 .fa {
   margin-right: 5px;  
 }
+
 .detail_ranking {
   margin: 10px 0 10px 0; 
 }
+
 .testimonial{
   margin-top: 15px;
   text-align: center;
@@ -39,11 +63,13 @@ a:hover {
 #header {
   background: #3ca5dc;
 }
+
 .block-header{
 	margin-top: 25px;
 }
+
 .block-header > h2 {
-    font-size: 15px;
+    font-size: 20px;
     color: #777;
     margin: 0;
     font-weight: 400;
@@ -60,15 +86,18 @@ a:hover {
 	margin-top: 25px;
 	background-color: #fcb449;
 }
+
 h2.note {
   text-align: center;
   font-size: 30px;
   font-style: italic;
   color: #fff;
 }
+
 .star_img {
 	padding-top: 21px;
 }
+
 /* LIKE */
 
 .like {
@@ -100,12 +129,14 @@ h2.note {
   padding: 15px 0 0 0;
 }
 
+
 /*BLOC INFOS*/
 #profile-main .pmb-block.info {
   padding: 40px 42px 25px;
   border-bottom: solid 2px #edecec;
   margin-bottom: 0;
 }
+
 #profile-main .pmb-block.detail {
   padding: 0 42px 0;
 }
@@ -114,6 +145,7 @@ h2.note {
 #profile-main .pmo-pic .pmo-stat {
   background: #3ca5dc;
 }
+
 .job_position {
   font-size: 20px;  
 }

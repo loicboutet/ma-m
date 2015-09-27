@@ -28,13 +28,13 @@
       <div class="card" id="profile-main">
         <div class="pm-overview c-overflow" tabindex="3" style="overflow: hidden; outline: none;">
           <div class="pmo-pic">
-            <div class="p-relative">
+            <div class="p-relative avatar">
               <a href=""><%= image_tag @shop.profile_image.url %>
               </a>
             </div> 
             <div class="pmo-stat">
               <h2 class="m-0 c-white"><%= @job_rating %></h2><br>
-              <h2 class="m-0 c-white job_position"><%= @shop.job %> à Chatres</h2>
+              <h2 class="m-0 c-white job_position"><%= @shop.job %> à Chartres</h2>
             </div>
             <div class="pmo-block pmo-contact hidden-xs">
               <h2>Contact</h2>
@@ -56,13 +56,13 @@
         <div class="pm-body clearfix">
           <ul class="tab-nav tn-justified" tabindex="1" style="overflow: hidden; outline: none;">
             <li class="active waves-effect"><a href="profile-about.html">Infos</a></li>
-            <li class="waves-effect"><a href="profile-timeline.html">Avis</a></li>
-            <li class="waves-effect"><a href="profile-photos.html">Photos</a></li>
-            <li class="waves-effect"><a href="profile-connections.html">Commentaires</a></li>
+            <li class="waves-effect"><a href="#" >Avis</a></li>
+            <li class="waves-effect"><a href="#">Photos</a></li>
+            <li class="waves-effect"><a href="#">Commentaires</a></li>
           </ul> 
           <div class="pmb-block info">
             <div class="pmbb-header">
-              <h2><i class="fa fa-file-text-o"></i>Summary</h2></div>
+              <h2><i class="fa fa-file-text-o"></i>Description</h2></div>
               <div class="pmbb-body p-l-30">
                 <div class="pmbb-view">
                   Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.
@@ -169,8 +169,8 @@
         <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">Envoyer</button>
       </div>
     </div>
   </div>
