@@ -5,6 +5,10 @@ a:hover {
 
 }
 
+.logo a:hover{
+  background-color:transparent;
+}
+
 .tab-nav > li > a:hover{
   color: #fff;
 }
@@ -33,20 +37,20 @@ a:hover {
   padding: 15px 5px 15px;
 }
 #profile-main .pmo-pic img{
-  min-height: 259px;  
+  min-height: 259px;
 }
 
 .img .avatar {
-  height: 259px; 
+  height: 259px;
 
 }
 
 .fa {
-  margin-right: 5px;  
+  margin-right: 5px;
 }
 
 .detail_ranking {
-  margin: 10px 0 10px 0; 
+  margin: 10px 0 10px 0;
 }
 
 .testimonial{
@@ -147,7 +151,7 @@ h2.note {
 }
 
 .job_position {
-  font-size: 20px;  
+  font-size: 20px;
 }
 
 /* NEW.HTML.ERB - sessions*/

@@ -5,7 +5,7 @@
       internal: {id: 'basic_map'},
       provider: {
         styles: [{"featureType":"administrative.locality","elementType":"all","stylers":[{"hue":"#ffa800"},{"saturation":7},{"lightness":19},{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":100},{"visibility":"simplified"}]},{"featureType":"poi","elementType":"all","stylers":[{"hue":"#00ffd8"},{"saturation":-100},{"lightness":100},{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"hue":"#00ffd8"},{"saturation":"-48"},{"lightness":31},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"hue":"#00ffd8"},{"saturation":"80"},{"lightness":31},{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"labels","stylers":[{"hue":"#00ffd8"},{"saturation":-93},{"lightness":-2},{"visibility":"simplified"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"hue":"#00ffd8"},{"saturation":-90},{"lightness":-8},{"visibility":"simplified"}]},{"featureType":"transit","elementType":"all","stylers":[{"hue":"#00ffd8"},{"saturation":10},{"lightness":69},{"visibility":"on"}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#e9ebed"},{"saturation":-78},{"lightness":67},{"visibility":"simplified"}]}],
-        zoom: 13,
+        zoom: 11,
         disableDefaultUI: true
       }
     }, function(){
@@ -17,34 +17,60 @@
      var marker = handler.addMarker({
         lat: position.coords.latitude,
         lng: position.coords.longitude,
-        "picture": {
-            "url": "https://files.slack.com/files-pri/T080QEJAY-F0BC164RK/puce_orange.png",
+          "picture": {
+            "url": "/assets/puces/puce_utilisateur.png",
             "width":  40,
             "height": 60
-          }
+          },
+          "infowindow": "Votre position"
       });
       handler.map.centerOn(marker);
-      handler.addMarker({
-          lat: 48.4480896,
-          lng: 1.4895808,
+      handler.addMarker(
+        {
+          lat: 48.4453967,
+          lng: 1.4655531,
           "picture": {
-            "url": "https://files.slack.com/files-pri/T080QEJAY-F0BC5KS02/puce_bleu.png",
+            "url": "/assets/puces/puce_map_patisier.png",
             "width":  40,
             "height": 60
-          }
+          },
+          "infowindow": "La Fournèe<br/>26 r Noël Ballay, 28000 CHARTRES"
         })
 
       handler.addMarker(
         {
-          lat: 48.447579,
-          lng: 1.5202004,
+          lat: 48.4411628,
+          lng: 1.4947089,
           "picture": {
-            "url": "https://files.slack.com/files-pri/T080QEJAY-F0BC5KS02/puce_bleu.png",
+            "url": "/assets/puces/puce_map_boulanger.png",
             "width":  40,
             "height": 60
-          }
-        }
-      )
+          },
+          "infowindow": "BOULANGERIE DENIS BRICHET <br/>6 r Pierre Mendès France, 28000 CHARTRES"
+        })
+       handler.addMarker(
+        {
+          lat: 48.3450344,
+          lng: 1.4938143,
+          "picture": {
+            "url": "/assets/puces/puce_map_boucher.png",
+            "width":  40,
+            "height": 60
+          },
+          "infowindow": "Le Large White <br/>8 r Chartres, 28360 DAMMARIE"
+        })
+
+        handler.addMarker(
+        {
+          lat: 48.4457014,
+          lng: 1.4887148,
+          "picture": {
+            "url": "/assets/puces/puce_map_poisson.png",
+            "width":  40,
+            "height": 60
+          },
+          "infowindow": "A La Fine Marée <br/>16 r Pie, 28000 Chartres"
+        })
     };
 
     $("#query").typed({
