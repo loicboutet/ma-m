@@ -135,6 +135,9 @@ h2.note {
 
 
 /*BLOC INFOS*/
+#profile-main {
+  min-height: 700px;
+}
 #profile-main .pmb-block.info {
   padding: 40px 42px 25px;
   border-bottom: solid 2px #edecec;
@@ -153,6 +156,29 @@ h2.note {
 .job_position {
   font-size: 20px;
 }
+/* MODAL */
+/*.modal-header {
+  border-bottom: 2px solid #3ca5dc;
+}*/
+textarea#comment_text{
+  border: 2px #fcb449 solid; 
+}
+
+.modal-footer {
+  border-top: 2px solid #edecec;
+}
+
+.btn-primary {
+  background-color: #3ca5dc;  
+}
+
+.btn:not(.btn-link) {
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0), 0 0px 0 rgba(0, 0, 0, 0);
+}
+
+
+
+
 
 /* NEW.HTML.ERB - sessions*/
 /*login-navigation*/

@@ -35,9 +35,9 @@ class RatingsController < ApplicationController
                               )
     stars = (params['rating']['quality'].to_i + params['rating']['service'].to_i + params['rating']['price'].to_i) / 3
     @rating = Rating.create(
-                              quality: params['rating']['quality'],
+                              quality: params['rating']['qualité'],
                               service: params['rating']['service'],
-                              price: params['rating']['price'],
+                              price: params['rating']['prix'],
                               stars: stars,
                               user: current_user,
                               shop: Shop.find(params['shop_id']),
