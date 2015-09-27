@@ -17,7 +17,7 @@
       <ul class="header-inner">
 
         <li class="logo hidden-xs" style="min-width:43%">
-            <a href="index.html"><% if !content_for?(:full_width) %>Mon Artisan et moi<% end %></a>
+            <a href="index.html"><% if !content_for?(:full_width) %><img src="/assets/logo_long.png"/><% end %></a>
         </li>
         <% if content_for?(:full_width) %>
         <li class="pull-middle">
@@ -27,7 +27,7 @@
         <li class="pull-right">
           <ul class="top-menu">
             <li>
-              <%= link_to('Logout', destroy_user_session_path, :class => "btn bgm-teal btn-sm waves-effect pull-right logout",:method => :delete) %>
+              <%#= link_to('Logout', destroy_user_session_path, :class => "btn bgm-teal btn-sm waves-effect pull-right logout",:method => :delete) %>
             </li>
           <ul>
         </li>
