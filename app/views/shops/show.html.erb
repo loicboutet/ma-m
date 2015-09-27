@@ -103,10 +103,10 @@
                         <h2 class ="testimonial">Donnez <br> votre <br>avis</h2>
                       </div>
                       <div class="dl-horizontal col-md-6">
-                        <%= link_to "#", "onclick" => "$('#myModal').modal('show');" do  %>
+                        <%= link_to "#", "onclick" => "$('#myModaltrue').modal('show');" do  %>
                           <img src="/assets/button_like.png" alt="">
                         <% end %>
-                        <%= link_to "/ratings/new?shop_id=#{@shop.id}&like=false" do  %>
+                        <%= link_to "#", "onclick" => "$('#myModalfalse').modal('show');" do  %>
                           <img src="/assets/button_dislike.png" alt="">
                         <% end %> 
                       </div>
