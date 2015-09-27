@@ -54,7 +54,6 @@ class Shop < ActiveRecord::Base
     self.ratings.where(like: true).count
   end
 
-
   def stars
     stars = ['empty', 'empty', 'empty', 'empty', 'empty']
     stars[0] = 'half' if self.average_rating(:stars) >= 0.5
@@ -69,6 +68,15 @@ class Shop < ActiveRecord::Base
     stars[4] = 'full' if self.average_rating(:stars) >= 5
     return stars
   end
+
+  def image
+    if self.profile_image.url.nil?
+      return "https://monartisanetmoi.s3.amazonaws.com/uploads/shop/profile_image/1676/shop_default_profile.png"
+    else
+      return self.profile_image.url
+    end
+  end
+
   # -- Methods
 
   # Uploader
