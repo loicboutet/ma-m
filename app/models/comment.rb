@@ -5,4 +5,12 @@ class Comment < ActiveRecord::Base
   belongs_to  :shop
 
   # -- Associations
+
+  # Methods
+
+  def date
+    self[:date].strftime("%d/%m/%Y - %H:%M:%S")
+  end
+
+  # -- Methods
 end
