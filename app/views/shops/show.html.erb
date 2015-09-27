@@ -28,13 +28,13 @@
       <div class="card" id="profile-main">
         <div class="pm-overview c-overflow" tabindex="3" style="overflow: hidden; outline: none;">
           <div class="pmo-pic">
-            <div class="p-relative">
+            <div class="p-relative avatar">
               <a href=""><%= image_tag @shop.profile_image.url %>
               </a>
             </div> 
             <div class="pmo-stat">
               <h2 class="m-0 c-white"><%= @job_rating %></h2><br>
-              <h2 class="m-0 c-white job_position"><%= @shop.job %> à Chatres</h2>
+              <h2 class="m-0 c-white job_position"><%= @shop.job %> à Chartres</h2>
             </div>
             <div class="pmo-block pmo-contact hidden-xs">
               <h2>Contact</h2>
@@ -56,9 +56,9 @@
         <div class="pm-body clearfix">
           <ul class="tab-nav tn-justified" tabindex="1" style="overflow: hidden; outline: none;">
             <li class="active waves-effect"><a href="profile-about.html">Infos</a></li>
-            <li class="waves-effect"><a href="profile-timeline.html">Avis</a></li>
-            <li class="waves-effect"><a href="profile-photos.html">Photos</a></li>
-            <li class="waves-effect"><a href="profile-connections.html">Commentaires</a></li>
+            <li class="waves-effect"><a href="#" >Avis</a></li>
+            <li class="waves-effect"><a href="#">Photos</a></li>
+            <li class="waves-effect"><a href="#">Commentaires</a></li>
           </ul> 
           <div class="pmb-block info">
             <div class="pmbb-header">
@@ -103,10 +103,10 @@
                         <h2 class ="testimonial">Donnez <br> votre <br>avis</h2>
                       </div>
                       <div class="dl-horizontal col-md-6">
-                        <%= link_to "#", "onclick" => "$('#myModaltrue').modal('show');" do  %>
+                        <%= link_to "#", "onclick" => "$('#myModal').modal('show');" do  %>
                           <img src="/assets/button_like.png" alt="">
                         <% end %>
-                        <%= link_to "#", "onclick" => "$('#myModalfalse').modal('show');" do  %>
+                        <%= link_to "/ratings/new?shop_id=#{@shop.id}&like=false" do  %>
                           <img src="/assets/button_dislike.png" alt="">
                         <% end %> 
                       </div>
