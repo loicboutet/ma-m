@@ -40,7 +40,7 @@ class Rating < ActiveRecord::Base
                                       less_than_or_equal_to: 10,
                                     }
   validates :shop, presence: true
-  validates :user, presence: true
+  # validates :user, presence: true
 
   # -- Validations
 end

@@ -103,10 +103,10 @@
                         <h2 class ="testimonial">Donnez <br> votre <br>avis</h2>
                       </div>
                       <div class="dl-horizontal col-md-6">
-                        <%= link_to "#", "onclick" => "$('#myModal').modal('show');" do  %>
+                        <%= link_to "#", "onclick" => "$('#myModaltrue').modal('show');" do  %>
                           <img src="/assets/button_like.png" alt="">
                         <% end %>
-                        <%= link_to "/ratings/new?shop_id=#{@shop.id}&like=false" do  %>
+                        <%= link_to "#", "onclick" => "$('#myModalfalse').modal('show');" do  %>
                           <img src="/assets/button_dislike.png" alt="">
                         <% end %> 
                       </div>
@@ -139,41 +139,72 @@
   </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- Modal true -->
+<div class="modal fade" id="myModaltrue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Nouveau commentaire</h4>
       </div>
-      <div class="modal-body">
-
-        <%= form_tag("/ratings?shop_id=#{@shop.id}", method: "post") do %>
-          <%= label_tag(:comment, "Votre commentaire:") %> <br>
-          <%= text_area(:comment, :text, size: "40x3") %> <br>
-          Vous êtes :
-          <select id="regular", name="regular">
-            <option value="regular"> Un client habituel </option>
-            <option value="not_regular"> Une client de passage </option>
-          </select> <br>
-          Note : <br>
-          <% ["quality", "service", "price"].each do |type| %>
-            <%= type.capitalize %> :
-            <% (0..4).each do |i|  %>
-              <%= radio_button("rating", type, i) %>
+      <%= form_tag("/ratings?shop_id=#{@shop.id}&like=true", method: "post") do %>
+        <div class="modal-body">
+            <%= label_tag(:comment, "Votre commentaire:") %> <br>
+            <%= text_area(:comment, :text, size: "40x3") %> <br>
+            Vous êtes :
+            <select id="regular", name="regular">
+              <option value="regular"> Un client habituel </option>
+              <option value="not_regular"> Un client de passage </option>
+            </select> <br>
+            Note : <br>
+            <% ["quality", "service", "price"].each do |type| %>
+              <%= type.capitalize %> :
+              <% (1..5).each do |i|  %>
+                <%= radio_button("rating", type, i * 2) %>
+              <% end %>
+              <br>
             <% end %>
-            <br>
-          <% end %>
-          <%= submit_tag("Créer") %>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= submit_tag "Créer", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
 
-
+<!-- Modal false -->
+<div class="modal fade" id="myModalfalse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nouveau commentaire</h4>
+      </div>
+      <%= form_tag("/ratings?shop_id=#{@shop.id}&like=false", method: "post") do %>
+        <div class="modal-body">
+            <%= label_tag(:comment, "Votre commentaire:") %> <br>
+            <%= text_area(:comment, :text, size: "40x3") %> <br>
+            Vous êtes :
+            <select id="regular", name="regular">
+              <option value="regular"> Un client habituel </option>
+              <option value="not_regular"> Un client de passage </option>
+            </select> <br>
+            Note : <br>
+            <% ["quality", "service", "price"].each do |type| %>
+              <%= type.capitalize %> :
+              <% (1..5).each do |i|  %>
+                <%= radio_button("rating", type, i * 2) %>
+              <% end %>
+              <br>
+            <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= submit_tag "Créer", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
