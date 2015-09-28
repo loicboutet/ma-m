@@ -34,7 +34,7 @@
       <div class="card">
         <a href="<%= shop_path shop %>">
         <div class="card-body" style="display:relative">
-            <img class="" src=<%= shop.image %> alt="" style="width:250px; float:left; margin-right:10px">
+            <img class="" src=<%= shop.search_image %> alt="" style="width:250px; float:left; margin-right:10px">
             <div class="details" style="width:240px; height:166px; float:right; font-size:13px; color:black; border-left:1px solid #ccc; padding-left:15px; padding-top:15px"> <br/>Détail des notes<br/><br/>
               <span style="display: inline-block;width:70px;">SERVICES</span>
                 <% shop.stars.each do | star | %>
@@ -57,9 +57,9 @@
                 <% end %>
                 <%= shop.comments.count %> avis | <%= shop.job_rating %> <%= shop.job %> à Chartres<br/>
             </div>
-            <div class="comments" style="font-size:11px; color: #004184">"Petit hôtel plein de chamr mais un peu défraichi" 12/09/2015</div>
-            <div class="comments" style="font-size:11px; color: #004184">"Un peu moyen, l'acceuil est bon mais les chambres ..." 12/09/2015</div>
-            <div class="comments" style="font-size:11px; color: #004184">"Petit hôtel plein de chamr mais un peu défraichi" 12/09/2015</div>
+            <% shop.comments.each do |c| %>
+            <div class="comments" style="font-size:11px; color: #004184">"<%= c.comment %>" le 27/09/2015</div>
+            <% end %>
             <div class="wall-img-preview lightbox clearfix">
             </div>
 

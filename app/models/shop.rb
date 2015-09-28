@@ -69,11 +69,19 @@ class Shop < ActiveRecord::Base
     return stars
   end
 
-  def image
-    if self.profile_image.url.nil?
+  def profile_image
+    if self.profile_image.profile.url.nil?
       return "https://monartisanetmoi.s3.amazonaws.com/uploads/shop/profile_image/1676/shop_default_profile.png"
     else
-      return self.profile_image.url
+      return self.profile_image.profile.url
+    end
+  end
+
+  def search_image
+    if self.profile_image.search.url.nil?
+      return "https://monartisanetmoi.s3.amazonaws.com/uploads/shop/profile_image/1676/shop_default_profile.png"
+    else
+      return self.profile_image.search.url
     end
   end
 
