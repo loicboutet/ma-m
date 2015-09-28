@@ -24,6 +24,7 @@ gem 'pundit'
 gem 'sendgrid'
 gem 'simple_form'
 gem 'gmaps4rails'
+gem "mini_magick"
 
 group :development do
   gem 'better_errors'
